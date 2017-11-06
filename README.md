@@ -1,5 +1,6 @@
 # GPIO_rpi
 This is a Custom GPIO Driver for RapberryPi ZeroW
+
 **This project is still under development**
 
 This is a GPIO Driver developed to manage 6 GPIOS. It will take in charge only the six ports needed and will return an octet containing the state of each GPIO used.
