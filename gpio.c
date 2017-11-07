@@ -8,7 +8,7 @@ static unsigned int GPIO_ROTL = 3;
 static unsigned int GPIO_RIGHT = 4;
 static unsigned int GPIO_DOWN = 17;
 static unsigned int GPIO_LEFT = 14;
-static unsigned int GPIO_HIGH = 15;
+static unsigned int GPIO_UP = 15;
 
 /*
 enum button
