@@ -68,7 +68,7 @@ static int
         pr_infor("Invalid Button Left\n");
         return -ENODEV;
     }
-    if (!gpio_is_valid(GPIO_HIGH))
+    if (!gpio_is_valid(GPIO_UP))
     {
         pr_infor("Invalid Button High\n");
         return -ENODEV;
@@ -79,28 +79,28 @@ static int
     gpio_request(unsigned GPIO_RIGHT, "button_RIGHT");
     gpio_request(unsigned GPIO_DOWN, "button_DOWN");
     gpio_request(unsigned GPIO_LEFT, "button_LEFT");
-    gpio_request(unsigned GPIO_HIGH, "button_HIGH");
+    gpio_request(unsigned GPIO_UP, "button_HIGH");
 
     gpio_set_debounce(GPIO_ROTR, 200); //Debounce with a delay of 200ms
     gpio_set_debounce(GPIO_ROTL, 200);
     gpio_set_debounce(GPIO_RIGHT, 200);
     gpio_set_debounce(GPIO_DOWN, 200);
     gpio_set_debounce(GPIO_LEFT, 200);
-    gpio_set_debounce(GPIO_HIGH, 200);
+    gpio_set_debounce(GPIO_UP, 200);
 
     gpio_direction_input(GPIO_ROTR); //Set GPIO as an iput
     gpio_direction_input(GPIO_ROTL);
     gpio_direction_input(GPIO_RIGHT);
     gpio_direction_input(GPIO_DOWN);
     gpio_direction_input(GPIO_LEFT);
-    gpio_direction_input(GPIO_HIGH);
+    gpio_direction_input(GPIO_UP);
 
     static int ROTR_state= gpio_get_value(GPIO_ROTR); //In ROTR_state is stocked the ROTR button state, (HIGH OR LOW)
     static int ROTL_state= gpio_get_value(GPIO_ROTL);
     static int RIGHT_state= gpio_get_value(GPIO_RIGHT);
     static int DOWN_state= gpio_get_value(GPIO_DOWN);
     static int LEFT_state= gpio_get_value(GPIO_LEFT);
-    static int HIGH_state= gpio_get_value(GPIO_HIGH);
+    static int HIGH_state= gpio_get_value(GPIO_UP);
 
     union state
     {
@@ -111,7 +111,7 @@ static int
         char RIGHT_state :1;
         char DOWN_state :1;
         char LEFT_state :1;
-        char HIGH_state :1;
+        char UP_state :1;
         char default :2;
 
 
@@ -120,7 +120,7 @@ static int
     }
     
 
-    static int buf[6] = {ROTR_state,ROTL_state,RIGHT_state,DOWN_state,LEFT_state,HIGH_state};
+    static int buf[6] = {ROTR_state,ROTL_state,RIGHT_state,DOWN_state,LEFT_state,UP_state};
 
 
 
